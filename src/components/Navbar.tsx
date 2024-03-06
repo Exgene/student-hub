@@ -8,10 +8,10 @@ const Navbar = () => {
   const [opened, setOpened] = useState(false)
   return (
     <>
-      <nav className="text-primary p-4 sm:px-6 flex items-center justify-between bg-background w-full fixed z-40 border-b-2">
+      <nav className="text-primary p-4 sm:px-6 flex items-center justify-center bg-background w-full h-16 fixed z-40 border-b-2">
         <Link
           href={'#home'}
-          className="text-lg flex items-center justify-center gap-2"
+          className="text-lg flex items-center justify-center gap-2 absolute left-2"
         >
           <HeartFilledIcon className="mt-[2px]"></HeartFilledIcon>
           Students Hub
@@ -25,21 +25,21 @@ const Navbar = () => {
             About
           </Link>
           <Link
-            href={'#services'}
+            href={'/#services'}
             className="font-extralight hover:font-normal duration-300"
           >
             Services
           </Link>
           <Link
-            href={'#socials'}
+            href={'/#socials'}
             className="font-extralight hover:font-normal duration-300"
           >
             Socials
           </Link>
         </div>
         <Link
-          href={'#contact'}
-          className="font-extralight hover:font-normal duration-300 hidden sm:block"
+          href={'/#contact'}
+          className="font-extralight hover:font-normal duration-300 hidden sm:block absolute right-2"
         >
           Contact Us
         </Link>

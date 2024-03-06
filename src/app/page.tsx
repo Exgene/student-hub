@@ -5,11 +5,11 @@ import Socials from '@/components/Socials'
 
 export default async function HomePage() {
   return (
-    <div>
+    <main>
       <HeroSection />
       <Services />
       <Socials />
       <Contacts/>
-    </div>
+    </main>
   )
 }
