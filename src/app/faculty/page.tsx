@@ -25,7 +25,7 @@ import React from 'react'
 
 const Faculty = () => {
   return (
-    <section className="min-h-screen">
+    <section className="min-h-screen bg-background">
       <div className="bg-white">
         <h1 className="text-black pb-[2rem] pt-[calc(4rem+2rem)] text-center text-3xl font-medium">
           CS Faculty
@@ -41,15 +41,15 @@ const Faculty = () => {
             <Dialog key={data.name}>
               <DialogTrigger key={data.name}>
                 <Card
-                  className="w-[280px] bg-black rounded-none"
-                  key={data.name}
+                  className="w-[280px] bg-foreground border-none"
+                key={data.img_src}
                 >
                   <CardHeader>
                     <CardTitle>
-                      <p>{data.name}</p>
+                      <p key={data.img_src}>{data.name}</p>
                     </CardTitle>
                     <CardDescription>
-                      <p>{data.designation}</p>
+                      <p key={data.img_src}>{data.designation}</p>
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
