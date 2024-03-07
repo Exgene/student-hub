@@ -45,7 +45,6 @@ export const authOptions: NextAuthOptions = {
       })
       if(!google) return session
       if ((google?.expires_at??0) * 1000 < Date.now()) {
-        // If the access token has expired, try to refresh it
         try {
           // https://accounts.google.com/.well-known/openid-configuration
           // We need the `token_endpoint`.
