@@ -10,7 +10,7 @@ const Navbar = () => {
     <>
       <nav className="text-primary p-4 sm:px-6 flex items-center justify-center bg-background w-full h-16 fixed z-40 border-b-2">
         <Link
-          href={'#home'}
+          href={'/#home'}
           className="text-lg flex items-center justify-center gap-2 absolute left-2"
         >
           <HeartFilledIcon className="mt-[2px]"></HeartFilledIcon>

@@ -9,7 +9,7 @@ export default async function HomePage() {
       <HeroSection />
       <Services />
       <Socials />
-      <Contacts/>
+      {/* <Contacts/> */}
     </main>
   )
 }

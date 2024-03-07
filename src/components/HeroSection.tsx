@@ -17,7 +17,7 @@ const HeroSection = () => {
           <h1 className="lg:text-6xl md:text-4xl text-2xl font-medium lg:max-w-4xl md:max-w-xl max-w-none">
             Welcome to NMAMIT's Student HUB
           </h1>
-          <SignInBtn stylesBtn="w-28 h-10" />
+          {/* <SignInBtn stylesBtn="w-28 h-10" /> */}
         </div>
 
         <Image

@@ -1,3 +1,4 @@
+
 import {
   Card,
   CardContent,
@@ -9,6 +10,8 @@ import {
 import { Button } from './ui/button'
 
 import { CardValue } from '@/lib/services-cards'
+import { redirect } from 'next/navigation'
+import Link from 'next/link'
 
 const Services = () => {
   return (
@@ -39,7 +42,7 @@ const Services = () => {
               <p>{card.cardValue}</p>
             </CardContent>
             <CardFooter className="self-end">
-              <Button>Read More</Button>
+              <Link href={card.cardLink} className='w-full'><Button>Read More</Button></Link>
             </CardFooter>
           </Card>
         ))}

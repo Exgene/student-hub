@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 const Contacts = () => {
   return (
-    <section className="text-primary min-h-screen">
+    <section className="text-primary min-h-screen" id='contact'>
       <div className="h-72 text-gray-600 relative bg-white flex flex-col justify-center items-start px-6 sm:px-52 lg:px-96 gap-2">
         {/* <Image
           src={'/18703.jpg'}
