@@ -10,7 +10,7 @@ const SignInBtn = ({ stylesBtn = '', stylesContainer=''}: { stylesBtn?: string ,
   }
 
   const handleSignIn = async () => {
-    await signIn()
+    await signIn("google")
   }
 
   if (status === 'loading') {

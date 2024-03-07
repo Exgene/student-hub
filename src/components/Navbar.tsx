@@ -6,7 +6,7 @@ import Image from 'next/image'
 import '../styles/navbar.css'
 // import Image from 'next/image';
 const Navbar = () => {
-  const [opened, setOpened] = useState(false)
+  // const [opened, setOpened] = useState(true)
   return (
     <>
       <nav className="text-primary p-4 sm:px-6 flex items-center justify-center bg-background w-full h-16 fixed z-40 border-b-2">
@@ -59,34 +59,34 @@ const Navbar = () => {
               <a
                 className="mt-10 text-2xl"
                 href={`/`}
-                onClick={() => setOpened(!opened)}
+                // onClick={() => setOpened(!opened)}
               ></a>
               <div className="mt-6 flex flex-col items-end gap-y-4 text-2xl">
                 <Link
                   href={'/'}
                   className="font-extralight"
-                  onClick={() => setOpened(!opened)}
+                  // onClick={() => setOpened(!opened)}
                 >
                   About
                 </Link>
                 <Link
                   href={'#services'}
                   className="font-extralight"
-                  onClick={() => setOpened(!opened)}
+                  // onClick={() => setOpened(!opened)}
                 >
                   Services
                 </Link>
                 <Link
                   href={'#socials'}
                   className="font-extralight"
-                  onClick={() => setOpened(!opened)}
+                  // onClick={() => setOpened(!opened)}
                 >
                   Socials
                 </Link>
                 <Link
                   href={'#contact'}
                   className="font-extralight"
-                  onClick={() => setOpened(!opened)}
+                  // onClick={() => setOpened(!opened)}
                 >
                   Contact Us
                 </Link>
