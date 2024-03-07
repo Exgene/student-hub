@@ -13,7 +13,7 @@ const inter = Inter({
 export const metadata = {
   title: 'Students HUB',
   description: 'NMAMIT Students Hub, Its about all the students essentials in one place!',
-  icons: [{ rel: 'icon', url: '/favicon.ico' }],
+  icons: [{ rel: 'icon', url: '/graduated.png' }],
 }
 
 export default function RootLayout({

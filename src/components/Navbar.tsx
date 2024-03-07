@@ -1,7 +1,8 @@
 'use client'
-import { HeartFilledIcon } from '@radix-ui/react-icons'
+import { StarFilledIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 import { useState } from 'react'
+import Image from 'next/image'
 import '../styles/navbar.css'
 // import Image from 'next/image';
 const Navbar = () => {
@@ -13,7 +14,8 @@ const Navbar = () => {
           href={'/#home'}
           className="text-lg flex items-center justify-center gap-2 absolute left-2"
         >
-          <HeartFilledIcon className="mt-[2px]"></HeartFilledIcon>
+          {/* <StarFilledIcon className="mt-[2px]"></StarFilledIcon> */}
+          <Image src={'/graduated.png'} alt='logo' width={20} height={20}></Image>
           Students Hub
           {/* <Image src={'/logo/logo.png'} alt='logo' width={30} height={50}></Image> */}
         </Link>

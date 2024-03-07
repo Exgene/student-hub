@@ -32,13 +32,13 @@ const Socials = () => {
           <h2 className="sm:text-4xl text-xl text-accent font-semibold">5+</h2>
           <p className="font-extralight text-xs sm:text-base">Backing Clubs</p>
         </div>
-        <div className="sm:w-[1px] w-16 h-[1px] bg-gray-300 sm:h-16" />
+        {/* <div className="sm:w-[1px] w-16 h-[1px] bg-gray-300 sm:h-16" />
         <div>
           <h2 className="sm:text-4xl text-xl text-accent font-semibold">0</h2>
           <p className="font-extralight text-xs sm:text-base">
             Fucks I Give About This Shit
           </p>
-        </div>
+        </div> */}
       </div>
       <h1 className="text-center mt-6 text-xl">Our Clubs</h1>
       <div className="w-full flex justify-center gap-40 flex-wrap max-w-5xl mx-auto p-16 mt-10">
