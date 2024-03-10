@@ -1,4 +1,4 @@
-const facultyData: {name: string; img_src: string; designation: string; info: { [key: string]: string }[] }[] = [
+const cybersecurityData: {name: string; img_src: string; designation: string; info: { [key: string]: string }[] }[] = [
     {
         "name": "Dr. ROSHAN FERNANDES",
         "img_src": "https://nitte.edu.in/admin/photo/3/faculty/179/2842.jpg",
@@ -38,4 +38,4 @@ const facultyData: {name: string; img_src: string; designation: string; info: { 
     }
 ];
 
-export default facultyData;
+export default cybersecurityData;

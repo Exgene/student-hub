@@ -1,4 +1,4 @@
-const facultyData: {name: string; img_src: string; designation: string; info: { [key: string]: string }[] }[] = [
+const BTData: {name: string; img_src: string; designation: string; info: { [key: string]: string }[] }[] = [
     {
         "name": "Dr. UJWAL P",
         "img_src": "https://nitte.edu.in/admin/photo/3/faculty/3/4.jpg",
@@ -476,4 +476,4 @@ const facultyData: {name: string; img_src: string; designation: string; info: { 
     }
 ];
 
-export default facultyData;
+export default BTData;

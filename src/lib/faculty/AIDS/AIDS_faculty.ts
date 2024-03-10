@@ -1,4 +1,4 @@
-const facultyData: {name: string; img_src: string; designation: string; info: { [key: string]: string }[] }[] = [
+const AIDSData: {name: string; img_src: string; designation: string; info: { [key: string]: string }[] }[] = [
     {
         "name": "Dr. VENUGOPALA P S",
         "img_src": "https://nitte.edu.in/admin/photo/3/faculty/176/2658.jpg",
@@ -135,4 +135,4 @@ const facultyData: {name: string; img_src: string; designation: string; info: { 
     }
 ];
 
-export default facultyData;
+export default AIDSData;
