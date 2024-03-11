@@ -1,4 +1,4 @@
-const CSEData: {name: string; img_src: string; designation: string; info: { [key: string]: string }[] }[] = [
+const CSEData: {name: string; img_src: string; designation: string; info: Array<Record<string, string>> }[] = [
     {
         "name": "Dr. NIRANJAN N. CHIPLUNKAR",
         "img_src": "https://nitte.edu.in/admin/photo/3/faculty/5/52.jpg",

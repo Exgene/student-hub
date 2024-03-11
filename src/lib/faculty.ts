@@ -10,22 +10,20 @@ import EEEData from "./faculty/EEE/EEE_faculty"
 import ISData from "./faculty/IS/IS_faculty"
 import MechData from "./faculty/Mech/Mech_faculty"
 import RoboticsData from "./faculty/Robotics/Robotics_faculty"
-
+/*
 const facultyData: {
   name: string
   img_src: string
   designation: string
   info: Record<string, string>[]
 }[] = Array.prototype.concat.apply([], [AIDSData , AIMLData , BTData , CCEData , CivilData , CSEData , cybersecurityData , ECEData , EEEData , ISData , MechData , RoboticsData])
-
-const faculty:{
-  [key: string]: {
-    name: string
-    img_src: string
-    designation: string
-    info: Record<string, string>[]
-  }[]
-} = {
+*/
+const faculty:Record<string, {
+  name: string
+  img_src: string
+  designation: string
+  info: Array<Record<string, string>>
+}[]> = {
   "Artificial Intelligence and Data Science": AIDSData,
   "Artificial Intelligence and Machine Learning": AIMLData,
   "Biotechnology": BTData,

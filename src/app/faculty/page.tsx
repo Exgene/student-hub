@@ -37,8 +37,7 @@ const Faculty = () => {
   const [department , setDepartment] = React.useState<string>("Artificial Intelligence and Machine Learning")
   const [ facultyData, setFacultyData] = React.useState(faculty[department])
 
-  const handleChangeDept = (e:any , dept:string) => {
-    e.preventDefault();
+  const handleChangeDept = (dept:string) => {
     setDepartment(dept)
     setFacultyData(faculty[dept])
   }
@@ -55,7 +54,7 @@ const Faculty = () => {
               <SheetDescription className='flex flex-col gap-4'>
                 {departments.map((dept) => {
                   return (
-                    <div className={`text-white text-center text-base overflow-y-auto ${(department === dept)? " font-bold" : "font-normal "}`} onClick={(e) => {handleChangeDept(e,dept)}}>{dept}</div>
+                    <div className={`text-white text-center text-base overflow-y-auto ${(department === dept)? " font-bold" : "font-normal "}`} onClick={() => {handleChangeDept(dept)}}>{dept}</div>
                   )
                 })}
               </SheetDescription>

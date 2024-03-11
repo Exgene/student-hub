@@ -1,4 +1,4 @@
-const CivilData: {name: string; img_src: string; designation: string; info: { [key: string]: string }[] }[] = [
+const CivilData: {name: string; img_src: string; designation: string; info: Array<Record<string, string>> }[] = [
     {
         "name": "Dr. I RAMESH MITHANTHAYA",
         "img_src": "https://nitte.edu.in/admin/photo/3/faculty/4/22.jpg",

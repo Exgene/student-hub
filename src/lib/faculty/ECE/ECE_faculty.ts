@@ -1,4 +1,4 @@
-const ECEData: {name: string; img_src: string; designation: string; info: { [key: string]: string }[] }[] = [
+const ECEData: {name: string; img_src: string; designation: string; info: Array<Record<string, string>> }[] = [
     {
         "name": "Dr. K RAJESH SHETTY",
         "img_src": "https://nitte.edu.in/admin/photo/3/faculty/7/118.jpg",

@@ -1,4 +1,4 @@
-const MechData: {name: string; img_src: string; designation: string; info: { [key: string]: string }[] }[] = [
+const MechData: {name: string; img_src: string; designation: string; info: Array<Record<string, string>> }[] = [
     {
         "name": "Dr. SHRINIVASA RAO B.R.",
         "img_src": "https://nitte.edu.in/admin/photo/3/faculty/9/252.jpg",

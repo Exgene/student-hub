@@ -1,4 +1,4 @@
-const AIMLData: {name: string; img_src: string; designation: string; info: { [key: string]: string }[] }[] = [
+const AIMLData: {name: string; img_src: string; designation: string; info: Array<Record<string, string>> }[] = [
     {
         "name": "Dr. SHARADA U SHENOY",
         "img_src": "https://nitte.edu.in/admin/photo/3/faculty/166/2196.jpg",

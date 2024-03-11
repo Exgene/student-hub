@@ -1,4 +1,4 @@
-const CCEData: {name: string; img_src: string; designation: string; info: { [key: string]: string }[] }[] = [
+const CCEData: {name: string; img_src: string; designation: string; info: Array<Record<string, string>> }[] = [
     {
         "name": "Dr. RADHAKRISHNA",
         "img_src": "https://nitte.edu.in/admin/photo/3/faculty/167/3024.jpg",

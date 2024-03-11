@@ -1,4 +1,4 @@
-const RoboticsData: {name: string; img_src: string; designation: string; info: { [key: string]: string }[] }[] = [
+const RoboticsData: {name: string; img_src: string; designation: string; info: Array<Record<string, string>> }[] = [
     {
         "name": "Dr. MURALIDHARA",
         "img_src": "https://nitte.edu.in/admin/photo/3/faculty/168/2225.jpg",
