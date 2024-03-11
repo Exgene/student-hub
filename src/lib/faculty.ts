@@ -18,4 +18,27 @@ const facultyData: {
   info: Record<string, string>[]
 }[] = Array.prototype.concat.apply([], [AIDSData , AIMLData , BTData , CCEData , CivilData , CSEData , cybersecurityData , ECEData , EEEData , ISData , MechData , RoboticsData])
 
-export default facultyData
+const faculty:{
+  [key: string]: {
+    name: string
+    img_src: string
+    designation: string
+    info: Record<string, string>[]
+  }[]
+} = {
+  "Artificial Intelligence and Data Science": AIDSData,
+  "Artificial Intelligence and Machine Learning": AIMLData,
+  "Biotechnology": BTData,
+  "Computer and Communication Engineering": CCEData,
+  "Civil Engineering": CivilData,
+  "Computer Science and Engineering": CSEData,
+  "Computer Science Cyber Security": cybersecurityData,
+  "Electronics and Communication Engineering": ECEData,
+  "Electrical and Electronics Engineering": EEEData,
+  "Information Science and Engineering": ISData,
+  "Mechanical Engineering": MechData,
+  "Robotics and Automation": RoboticsData
+}
+
+// export facultyData;
+export default faculty;

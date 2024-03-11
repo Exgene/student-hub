@@ -18,25 +18,57 @@ import {
   DialogDescription,
   DialogTrigger,
 } from '@/components/ui/dialog'
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 import { Separator } from '@/components/ui/separator'
-import facultyData from '@/lib/faculty'
+import faculty from '@/lib/faculty'
 import Image from 'next/image'
 import React from 'react'
 
 const Faculty = () => {
+
+  const departments = Object.keys(faculty);
+  const [department , setDepartment] = React.useState<string>("Artificial Intelligence and Machine Learning")
+  const [ facultyData, setFacultyData] = React.useState(faculty[department])
+
+  const handleChangeDept = (e:any , dept:string) => {
+    e.preventDefault();
+    setDepartment(dept)
+    setFacultyData(faculty[dept])
+  }
+
   return (
     <section className="min-h-screen bg-background">
       <div className="bg-white">
-        <h1 className="text-black pb-[2rem] pt-[calc(4rem+2rem)] text-center text-3xl font-medium">
-          CS Faculty
-        </h1>
+        <Sheet>
+          <SheetTrigger className="text-black pb-[2rem] pt-[calc(4rem+2rem)] text-center text-2xl font-medium w-full">{department}</SheetTrigger>
+          <SheetContent className='backdrop-blur-sm opacity-80'>
+            <SheetHeader>
+              <SheetTitle><div className='w-full text-3xl mt-8 mb-4 text-white text-center'>Departments</div></SheetTitle>
+              <Separator />
+              <SheetDescription className='flex flex-col gap-4'>
+                {departments.map((dept) => {
+                  return (
+                    <div className={`text-white text-center text-base overflow-y-auto ${(department === dept)? " font-bold" : "font-normal "}`} onClick={(e) => {handleChangeDept(e,dept)}}>{dept}</div>
+                  )
+                })}
+              </SheetDescription>
+            </SheetHeader>
+          </SheetContent>
+        </Sheet>
       </div>
 
       <div
         className="text-white pt-20 flex w-full flex-wrap justify-center h-full p-10 gap-10"
         key={0}
       >
-        {facultyData.map((data) => {
+        {facultyData?.map((data) => {
           return (
             <Dialog key={data.name}>
               <DialogTrigger key={data.name}>
