@@ -38,13 +38,14 @@ model Session {
 }
 
 model User {
-    id            String    @id @default(cuid())
+    id            String     @id @default(cuid())
     name          String?
-    email         String?   @unique
+    email         String?    @unique
     emailVerified DateTime?
     image         String?
     accounts      Account[]
     sessions      Session[]
+    feedbacks     Feedback[]
 }
 
 model VerificationToken {
@@ -56,9 +57,11 @@ model VerificationToken {
 }
 
 model Feedback {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    message   String
-    userId    String?
+    id          String   @id @default(cuid())
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+    message     String
+    userId      String?
+    user        User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+    submittedBy String?
 }
