@@ -13,22 +13,53 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form'
+import { useSession } from 'next-auth/react'
+import { useState } from 'react'
 import { Textarea } from './ui/textarea'
 const formSchema = z.object({
-  username: z.string().min(2, {
+  feedback: z.string().min(2, {
     message: 'Username must be at least 2 characters.',
   }),
 })
 
 const Contacts = () => {
+  const { data: session } = useSession()
+  const [userName, setUserName] = useState<string | null | undefined>(
+    'anonymous',
+  )
+  const [userId, setUserId] = useState<string | null>(null)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: '',
+      feedback: '',
     },
   })
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     //TODO: Feedback submission!
+
+    if (session?.user) {
+      setUserName(session.user.name)
+      setUserId(session.user.id)
+    }
+    const res = await fetch('/api/feedback', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        submittedBy: userName,
+        userId,
+        message: values.feedback,
+      }),
+    })
+    // alert(JSON.stringify(res))
+    // await db.feedback.create({
+    //   data:{
+    //     submittedBy:userName,
+    //     userId,
+    //     message:values.feedback,
+    //   }
+    // })
     console.log('submitted', values)
   }
   return (
@@ -56,7 +87,7 @@ const Contacts = () => {
           >
             <FormField
               control={form.control}
-              name="username"
+              name="feedback"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Geniune Feedback</FormLabel>
