@@ -18,62 +18,88 @@ import {
   DialogDescription,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
 import { Separator } from '@/components/ui/separator'
-import faculty from '@/lib/faculty'
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import faculty , { allFaculty }from '@/lib/faculty'
 import Image from 'next/image'
-import React from 'react'
+import React from 'react';
+import { Label } from '@radix-ui/react-label'
+
+const departments = Object.keys(faculty)
 
 const Faculty = () => {
 
-  const departments = Object.keys(faculty);
-  const [department , setDepartment] = React.useState<string>("Artificial Intelligence and Machine Learning")
-  const [ facultyData, setFacultyData] = React.useState(faculty[department])
+  const [ department , setDepartment] = React.useState<string>("Faculty")
+  const [ facultyData, setFacultyData] = React.useState(allFaculty[department])
+
+  const [ open , setOpen ] = React.useState(false)
+  const [ search , setSearch ] = React.useState(departments)
 
   const handleChangeDept = (dept:string) => {
+    console.log(dept);
+    
     setDepartment(dept)
     setFacultyData(faculty[dept])
   }
 
+  const handleSearchInput = (e:any) => {
+    e.preventDefault();
+    const target = (e.target as HTMLInputElement).value
+
+    if(target.length > 0){
+      const regex = new RegExp(target, 'i');
+      const result = departments.filter((dept) => dept.match(regex));
+      setSearch(result);
+    }else{
+      setSearch(departments);
+    }
+  }
+
   return (
     <section className="min-h-screen bg-background">
-      <div className="bg-white">
-        <Sheet>
-          <SheetTrigger className="text-black pb-[2rem] pt-[calc(4rem+2rem)] text-center text-2xl font-medium w-full">{department}</SheetTrigger>
-          <SheetContent className='backdrop-blur-sm opacity-80'>
-            <SheetHeader>
-              <SheetTitle><div className='w-full text-3xl mt-8 mb-4 text-white text-center'>Departments</div></SheetTitle>
-              <Separator />
-              <SheetDescription className='flex flex-col gap-4'>
-                {departments.map((dept) => {
-                  return (
-                    <div className={`text-white text-center text-base overflow-y-auto ${(department === dept)? " font-bold" : "font-normal "}`} onClick={() => {handleChangeDept(dept)}}>{dept}</div>
-                  )
-                })}
-              </SheetDescription>
-            </SheetHeader>
-          </SheetContent>
-        </Sheet>
+      <div className="text-black pb-[2rem] pt-[calc(4rem+2rem)] text-center text-2xl font-medium w-full bg-white">
+        {department}
+      </div>
+
+      <div className='w-full pt-10 px-4 flex flex-col items-center'>
+        <Input className='w-80 mx-auto bg-white font-medium' onInput={handleSearchInput} onFocus={() => {setOpen(true)}} onBlur={() => {setOpen(false)}}></Input>
+        <div className={`z-[10] flex justify-center mt-10 ${ open ? "absolute" : "hidden"}`}>
+          <ScrollArea className='max-h-60 w-80 bg-white rounded p-4 text-wrap'>
+            {
+              (search.length > 0) ? (
+                  search.map((dept) => {
+                    return(
+                      <>
+                        <Separator className='h-[2px] bg-[#d6d6d6]'/>
+                        <Button className='p-2 h-auto' onClick={() => handleChangeDept(dept)}>  
+                        <Label className='text-[#181818} font-medium'>{dept}</Label>
+                        </Button>
+                      </>
+                    )
+                  })
+                  ) : (
+                <>
+                  <Label className='text-[#181818} font-medium'>No such department</Label>
+                </>
+              )
+            }
+          </ScrollArea>
+        </div>
       </div>
 
       <div
         className="text-white pt-20 flex w-full flex-wrap justify-center h-full p-10 gap-10"
         key={0}
       >
-        {facultyData?.map((data) => {
+        {facultyData?.map((data , index) => {
           return (
             <Dialog key={data.name}>
               <DialogTrigger key={data.name}>
                 <Card
                   className="w-[280px] bg-foreground border-none"
-                key={data.img_src}
+                  key={data.img_src}
                 >
                   <CardHeader>
                     <CardTitle>
@@ -88,12 +114,13 @@ const Faculty = () => {
                       className="relative border w-full aspect-square "
                       key={data.name}
                     >
-                      <Image
-                        src={data.img_src}
-                        alt={data.name + 'Image'}
-                        fill
-                        className="filter sm:grayscale hover:grayscale-0 duration-150"
-                      ></Image>
+                        <Image
+                          src={data.img_src}
+                          alt={data.name + 'Image'}
+                          fill
+                          priority={(index < 8)? true : false}
+                          className="filter sm:grayscale hover:grayscale-0 duration-150"
+                        ></Image>
                     </div>
                   </CardContent>
                 </Card>

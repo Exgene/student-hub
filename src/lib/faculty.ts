@@ -38,5 +38,15 @@ const faculty:Record<string, {
   "Robotics and Automation": RoboticsData
 }
 
-// export facultyData;
+
+const allFaculty:Record<string, {
+  name: string
+  img_src: string
+  designation: string
+  info: Array<Record<string, string>>
+}[]> = {
+  "Faculty" : Array.prototype.concat.apply([], [AIDSData , AIMLData , BTData , CCEData , CivilData , CSEData , cybersecurityData , ECEData , EEEData , ISData , MechData , RoboticsData])
+}
+
+export { allFaculty };
 export default faculty;
