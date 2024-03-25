@@ -3,6 +3,8 @@ const config = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: true,
+    tsconfigRootDir: __dirname,
+    sourceType: "module",
   },
   plugins: ['@typescript-eslint'],
   extends: [
