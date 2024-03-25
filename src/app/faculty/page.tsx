@@ -18,12 +18,22 @@ import {
   DialogDescription,
   DialogTrigger,
 } from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import facultyData from '@/lib/faculty'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 
 const Faculty = () => {
+  const [searchQuery, setSearchQuery] = useState('')
+  const handleSearch = (event: HTMLInputElement) => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    setSearchQuery(event?.target?.value)
+  }
+
+  const filteredFaculty = facultyData.filter((data) =>
+    data.name.toLowerCase().includes(searchQuery.toLowerCase()),
+  )
   return (
     <section className="min-h-screen bg-background">
       <div className="bg-white">
@@ -31,18 +41,26 @@ const Faculty = () => {
           CS Faculty
         </h1>
       </div>
-
+      <div className="flex justify-center mt-4">
+        <Input
+          type="text"
+          placeholder="Search faculty by name"
+          value={searchQuery}
+          onChange={handleSearch}
+          className="px-4 py-2 border max-w-lg text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
       <div
         className="text-white pt-20 flex w-full flex-wrap justify-center h-full p-10 gap-10"
         key={0}
       >
-        {facultyData.map((data) => {
+        {filteredFaculty.map((data) => {
           return (
             <Dialog key={data.name}>
               <DialogTrigger key={data.name}>
                 <Card
                   className="w-[280px] bg-foreground border-none"
-                key={data.img_src}
+                  key={data.img_src}
                 >
                   <CardHeader>
                     <CardTitle>
