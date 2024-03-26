@@ -18,12 +18,22 @@ const facultyData: {
   info: Record<string, string>[]
 }[] = Array.prototype.concat.apply([], [AIDSData , AIMLData , BTData , CCEData , CivilData , CSEData , cybersecurityData , ECEData , EEEData , ISData , MechData , RoboticsData])
 */
+const allFaculty:Record<string, {
+  name: string
+  img_src: string
+  designation: string
+  info: Array<Record<string, string>>
+}[]> = {
+  "Faculty" : Array.prototype.concat.apply([], [AIDSData , AIMLData , BTData , CCEData , CivilData , CSEData , cybersecurityData , ECEData , EEEData , ISData , MechData , RoboticsData])
+}
+
 const faculty:Record<string, {
   name: string
   img_src: string
   designation: string
   info: Array<Record<string, string>>
 }[]> = {
+  "All Faculty" : Array.prototype.concat.apply([], [AIDSData , AIMLData , BTData , CCEData , CivilData , CSEData , cybersecurityData , ECEData , EEEData , ISData , MechData , RoboticsData]),
   "Artificial Intelligence and Data Science": AIDSData,
   "Artificial Intelligence and Machine Learning": AIMLData,
   "Biotechnology": BTData,
@@ -39,14 +49,6 @@ const faculty:Record<string, {
 }
 
 
-const allFaculty:Record<string, {
-  name: string
-  img_src: string
-  designation: string
-  info: Array<Record<string, string>>
-}[]> = {
-  "Faculty" : Array.prototype.concat.apply([], [AIDSData , AIMLData , BTData , CCEData , CivilData , CSEData , cybersecurityData , ECEData , EEEData , ISData , MechData , RoboticsData])
-}
 
 export { allFaculty };
 export default faculty;
