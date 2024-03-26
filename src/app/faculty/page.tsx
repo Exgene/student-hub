@@ -32,20 +32,24 @@ const departments = Object.keys(faculty)
 const Faculty = () => {
   const [department, setDepartment] = React.useState<string>('Faculty')
   const [facultyData, setFacultyData] = React.useState(allFaculty[department])
+  const [searchQuery, setSearchQuery] = React.useState('')
 
   const [open, setOpen] = React.useState(false)
   const [search, setSearch] = React.useState(departments)
 
-  const handleChangeDept = (dept:string) => {
+  const handleChangeDept = (dept: string) => {
     console.log(dept)
     setOpen(false)
     setDepartment(dept)
     setFacultyData(faculty[dept])
   }
 
-  const handleSearchInput = (e: any) => {
+  const handleSearchInput = (e: {
+    preventDefault: () => void
+    target: HTMLInputElement
+  }) => {
     e.preventDefault()
-    const target = (e.target as HTMLInputElement).value
+    const target = e.target.value
 
     if (target.length > 0) {
       const regex = new RegExp(target, 'i')
@@ -55,7 +59,7 @@ const Faculty = () => {
       setSearch(departments)
     }
   }
-  const [searchQuery, setSearchQuery] = React.useState('')
+
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     setSearchQuery(event?.target?.value)
@@ -64,12 +68,12 @@ const Faculty = () => {
   const filteredFaculty = facultyData?.filter((data) =>
     data.name.toLowerCase().includes(searchQuery.toLowerCase()),
   )
+
   return (
     <section className="min-h-screen bg-background">
       <div className="text-black pb-[2rem] pt-[calc(4rem+2rem)] text-center text-2xl font-medium w-full bg-white">
         {department}
       </div>
-
       <div className="flex justify-center mt-6">
         <Input
           type="text"
@@ -82,31 +86,29 @@ const Faculty = () => {
             setTimeout(() => {
               setOpen(false)
               // Time to prevent instant blur
-            },300)
+            }, 300)
           }}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
             handleSearch(event)
           }
           className="px-4 py-2 border max-w-lg text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-          
         <div
           className={`z-[10] flex justify-center mt-10 bg-[#0f0f0f] ${open ? 'absolute' : 'hidden'}`}
         >
           <ScrollArea className="px-4 py-2 border max-w-lg max-h-80 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
             {search.length > 0 ? (
-              search.map((dept , index) => {
-                
+              search.map((dept, index) => {
                 return (
                   <>
-                    <Separator className={`h-[2px] ${index === 0 ? "hidden" : ""}`} />
+                    <Separator
+                      className={`h-[2px] ${index === 0 ? 'hidden' : ''}`}
+                    />
                     <Button
                       className="bg-[#0f0f0f] text-white w-full hover:text-black"
                       onClick={() => handleChangeDept(dept)}
                     >
-                      <Label className="">
-                        {dept}
-                      </Label>
+                      <Label className="">{dept}</Label>
                     </Button>
                   </>
                 )
