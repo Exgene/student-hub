@@ -18,43 +18,116 @@ import {
   DialogDescription,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
-import facultyData from '@/lib/faculty'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import faculty, { allFaculty } from '@/lib/faculty'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React from 'react'
+import { Label } from '@radix-ui/react-label'
+
+const departments = Object.keys(faculty)
 
 const Faculty = () => {
-  const [searchQuery, setSearchQuery] = useState('')
-  const handleSearch = (event: HTMLInputElement) => {
+  const [department, setDepartment] = React.useState<string>('Faculty')
+  const [facultyData, setFacultyData] = React.useState(allFaculty[department])
+  const [searchQuery, setSearchQuery] = React.useState('')
+
+  const [open, setOpen] = React.useState(false)
+  const [search, setSearch] = React.useState(departments)
+
+  const handleChangeDept = (dept: string) => {
+    console.log(dept)
+    setOpen(false)
+    setDepartment(dept)
+    setFacultyData(faculty[dept])
+  }
+
+  const handleSearchInput = (e: {
+    preventDefault: () => void
+    target: HTMLInputElement
+  }) => {
+    e.preventDefault()
+    const target = e.target.value
+
+    if (target.length > 0) {
+      const regex = new RegExp(target, 'i')
+      const result = departments.filter((dept) => dept.match(regex))
+      setSearch(result)
+    } else {
+      setSearch(departments)
+    }
+  }
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     setSearchQuery(event?.target?.value)
   }
 
-  const filteredFaculty = facultyData.filter((data) =>
+  const filteredFaculty = facultyData?.filter((data) =>
     data.name.toLowerCase().includes(searchQuery.toLowerCase()),
   )
+
   return (
     <section className="min-h-screen bg-background">
-      <div className="bg-white">
-        <h1 className="text-black pb-[2rem] pt-[calc(4rem+2rem)] text-center text-3xl font-medium">
-          CS Faculty
-        </h1>
+      <div className="text-black pb-[2rem] pt-[calc(4rem+2rem)] text-center text-2xl font-medium w-full bg-white">
+        {department}
       </div>
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-6">
         <Input
           type="text"
           placeholder="Search faculty by name"
           value={searchQuery}
-          onChange={handleSearch}
+          onFocus={() => {
+            setOpen(true)
+          }}
+          onBlur={() => {
+            setTimeout(() => {
+              setOpen(false)
+              // Time to prevent instant blur
+            }, 300)
+          }}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            handleSearch(event)
+          }
           className="px-4 py-2 border max-w-lg text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
+        <div
+          className={`z-[10] flex justify-center mt-10 bg-[#0f0f0f] ${open ? 'absolute' : 'hidden'}`}
+        >
+          <ScrollArea className="px-4 py-2 border max-w-lg max-h-80 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            {search.length > 0 ? (
+              search.map((dept, index) => {
+                return (
+                  <>
+                    <Separator
+                      className={`h-[2px] ${index === 0 ? 'hidden' : ''}`}
+                    />
+                    <Button
+                      className="bg-[#0f0f0f] text-white w-full hover:text-black"
+                      onClick={() => handleChangeDept(dept)}
+                    >
+                      <Label className="">{dept}</Label>
+                    </Button>
+                  </>
+                )
+              })
+            ) : (
+              <>
+                <Label className="text-[#181818] bg-[#0f0f0f] font-medium">
+                  No such department
+                </Label>
+              </>
+            )}
+          </ScrollArea>
+        </div>
       </div>
       <div
         className="text-white pt-20 flex w-full flex-wrap justify-center h-full p-10 gap-10"
         key={0}
       >
-        {filteredFaculty.map((data) => {
+        {filteredFaculty?.map((data, index) => {
           return (
             <Dialog key={data.name}>
               <DialogTrigger key={data.name}>
@@ -79,6 +152,7 @@ const Faculty = () => {
                         src={data.img_src}
                         alt={data.name + 'Image'}
                         fill
+                        priority={index < 8 ? true : false}
                         className="filter sm:grayscale hover:grayscale-0 duration-150"
                       ></Image>
                     </div>
