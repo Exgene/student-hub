@@ -1,9 +1,11 @@
+'use client'
 import {
   GitHubLogoIcon,
   InstagramLogoIcon,
   LinkedInLogoIcon,
   TwitterLogoIcon,
 } from '@radix-ui/react-icons'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -14,10 +16,14 @@ const HeroSection = () => {
     <section className="text-primary min-h-screen bg-foreground" id="home">
       <div className="relative w-full h-96 bg-[radial-gradient(ellipse_at_center_200px,_var(--tw-gradient-stops))] from-hero to-primary-foreground to-[80%] flex flex-col justify-center items-center px-4">
         <div className="flex flex-col gap-y-4">
-          <h1 className="lg:text-6xl md:text-4xl text-2xl font-medium lg:max-w-4xl md:max-w-xl max-w-none">
+          <motion.h1
+            className="lg:text-6xl md:text-4xl text-2xl font-medium lg:max-w-4xl md:max-w-xl max-w-none"
+          >
             Welcome to NMAMIT's Student HUB
-          </h1>
-          <SignInBtn stylesBtn="w-28 h-10" />
+          </motion.h1>
+          <motion.div>
+            <SignInBtn stylesBtn="w-28 h-10" />
+          </motion.div>
         </div>
 
         <Image
@@ -29,31 +35,40 @@ const HeroSection = () => {
         />
       </div>
       <div className="flex mt-10 lg:gap-20 gap-4 lg:flex-row flex-col items-center justify-center">
-        <div className="flex flex-col md:max-w-lg max-w-none gap-6 p-10">
+        <motion.div
+          className="flex flex-col md:max-w-lg max-w-none gap-6 p-10"
+        >
           <h1 className="sm:text-4xl text-3xl font-medium leading-10">
             Comprehensive College Website
           </h1>
-          <p className="sm:text-base text-sm leading-6 sm:leading-normal font-extralight">
+          <motion.p
+            className="sm:text-base text-sm leading-6 sm:leading-normal font-extralight"
+            transition={{ delay: 0.1 }}
+          >
             Discover a seamless and engaging experience with NMAMIT STUDENT'S
             HUB, a website designed to provide college students with all the
             information they need about their faculty and campus. With
             interactive features and easy navigation, STUDENT'S HUB is the
             ultimate college website.
-          </p>
+          </motion.p>
           <Button className="max-w-[100px] h-10">Read More</Button>
-        </div>
+        </motion.div>
         <div className="">
-          <div className='relative sm:w-[450px] w-80 h-40 sm:h-60'>
+          <motion.div
+            className="relative sm:w-[450px] w-80 h-40 sm:h-60"
+          >
             <Image
-            sizes='(max-width: 600px) 100vw, 500px'
+              sizes="(max-width: 600px) 100vw, 500px"
               src={'/StudentGroup.jpg'}
               alt="test"
               fill
               className="rounded-lg object-cover"
             />
-          </div>
-          
-          <div className="flex mt-4 px-4 gap-x-4 justify-center lg:justify-start mb-4">
+          </motion.div>
+
+          <motion.div
+            className="flex mt-4 px-4 gap-x-4 justify-center lg:justify-start mb-4"
+          >
             <Link
               href={'https://instagram.com/test'}
               className="hover:scale-110 duration-300"
@@ -78,7 +93,7 @@ const HeroSection = () => {
             >
               <GitHubLogoIcon height={20} width={20} />
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,8 +1,15 @@
 'use client'
 import { Button } from '@/components/ui/button'
+import { motion } from 'framer-motion'
 import { signIn, signOut, useSession } from 'next-auth/react'
 
-const SignInBtn = ({ stylesBtn = '', stylesContainer=''}: { stylesBtn?: string , stylesContainer?: string}) => {
+const SignInBtn = ({
+  stylesBtn = '',
+  stylesContainer = '',
+}: {
+  stylesBtn?: string
+  stylesContainer?: string
+}) => {
   const { data: session, status } = useSession()
 
   const handleSignOut = async () => {
@@ -10,11 +17,17 @@ const SignInBtn = ({ stylesBtn = '', stylesContainer=''}: { stylesBtn?: string ,
   }
 
   const handleSignIn = async () => {
-    await signIn("google")
+    await signIn('google')
   }
 
   if (status === 'loading') {
-    return <div>Loading....</div> // or return a loading spinner
+    return (
+      <div className={`${stylesContainer}`}>
+        <Button disabled className={`${stylesBtn}`}>
+          Loading
+        </Button>
+      </div>
+    ) // or return a loading spinner
   }
 
   return (
