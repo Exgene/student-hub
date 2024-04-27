@@ -1,6 +1,7 @@
-import Footer from '@/components/Footer';
+import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import Provider from '@/components/SessionProvider'
+import SmoothScroll from '@/components/SmoothScroll'
 import '@/styles/globals.css'
 
 import { Inter } from 'next/font/google'
@@ -12,7 +13,8 @@ const inter = Inter({
 
 export const metadata = {
   title: 'Students HUB',
-  description: 'NMAMIT Students Hub, Its about all the students essentials in one place!',
+  description:
+    'NMAMIT Students Hub, Its about all the students essentials in one place!',
   icons: [{ rel: 'icon', url: '/graduated.png' }],
 }
 
@@ -24,11 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Provider>
-        <body className={`font-sans ${inter.variable}`}>
-          <Navbar />
-          {children}
-          <Footer/>
-        </body>
+        <SmoothScroll>
+          <body className={`font-sans ${inter.variable}`}>
+            <Navbar />
+            {children}
+            <Footer />
+          </body>
+        </SmoothScroll>
       </Provider>
     </html>
   )
