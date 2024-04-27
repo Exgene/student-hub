@@ -30,6 +30,7 @@ import {
 } from '@/components/ui/select'
 import { Separator } from '@/components/ui/separator'
 import faculty, { allFaculty } from '@/lib/faculty'
+import { PersonIcon } from '@radix-ui/react-icons'
 import { unstable_noStore } from 'next/cache'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
@@ -67,30 +68,50 @@ const FacultyPage = () => {
     setSearchQuery(event.target.value)
   }
 
+  const handleDepartmentChange = (newDepartment: string) => {
+    setSelectedDepartment(newDepartment)
+    // Reset the search query to prevent automatic opening of faculty cards
+    setSearchQuery('')
+  }
+
   return (
-    <section className="min-h-screen text-primary">
+    <section className="min-h-screen text-black bg-yellow-500">
       <div className="pt-24 text-center">
         <h1 className="text-4xl font-bold">Faculty</h1>
-        <p className="text-muted-foreground">
-          Meet our esteemed faculty members
-        </p>
+        <p className="text-gray-800">Meet our esteemed faculty members</p>
       </div>
-      <div className="flex justify-center w-2/3 mx-auto p-6 gap-2">
+      <div className="flex justify-center sm:w-2/3 w-full mx-auto p-6 gap-2">
         <Input
           type="text"
           placeholder="Search Faculty"
           className="w-full mx-auto bg-black text-white"
           onChange={handleSearch}
         />
-        <Select onValueChange={setSelectedDepartment}>
-          <SelectTrigger className="flex-shrink w-32">
-            <SelectValue placeholder="Department" />
+        <Select onValueChange={handleDepartmentChange}>
+          <SelectTrigger className="flex-shrink w-32 text-black border-black">
+            <SelectValue
+              placeholder={
+                <div className="flex w-full items-center gap-1">
+                  <PersonIcon className="w-4 h-4"></PersonIcon>
+                  <p>Dept.</p>
+                </div>
+              }
+            >
+              <div className="flex w-full items-center gap-1">
+                <PersonIcon className="w-4 h-4"></PersonIcon>
+                <p>Dept.</p>
+              </div>
+            </SelectValue>
           </SelectTrigger>
           <SelectContent className="bg-black text-white">
             <SelectGroup>
               <SelectLabel>Department</SelectLabel>
               {departments.map((department) => (
-                <SelectItem key={department} value={department}>
+                <SelectItem
+                  key={department}
+                  value={department}
+                  className="focus:bg-white focus:text-gray-950"
+                >
                   {department}
                 </SelectItem>
               ))}
@@ -98,21 +119,25 @@ const FacultyPage = () => {
           </SelectContent>
         </Select>
       </div>
-      <div className='border flex'>
+      <div className="text-black pt-20 flex w-full flex-wrap justify-center h-full p-10 gap-10">
         {filteredFaculty.map((data) => {
           return (
             <Dialog key={data.name}>
               <DialogTrigger key={data.name}>
                 <Card
-                  className="w-[280px] bg-foreground border-none"
+                  className="w-[280px] bg-yellow-600 border-none shadow-2xl"
                   key={data.img_src}
                 >
                   <CardHeader>
                     <CardTitle>
-                      <p key={data.img_src}>{data.name}</p>
+                      <p key={data.img_src} className="text-black">
+                        {data.name}
+                      </p>
                     </CardTitle>
                     <CardDescription>
-                      <p key={data.img_src}>{data.designation}</p>
+                      <p key={data.img_src} className="text-gray-800">
+                        {data.designation}
+                      </p>
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -124,7 +149,7 @@ const FacultyPage = () => {
                         src={data.img_src}
                         alt={data.name + 'Image'}
                         fill
-                        className="filter sm:grayscale hover:grayscale-0 duration-150"
+                        className="filter sm:grayscale-[60%] hover:grayscale-0 duration-150"
                       ></Image>
                     </div>
                   </CardContent>
