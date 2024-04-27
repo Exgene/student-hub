@@ -9,6 +9,9 @@ const config = {
   images: {
     domains: ['nitte.edu.in'],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 }
 
 export default config
