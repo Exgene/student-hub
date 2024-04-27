@@ -10,34 +10,43 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import SignInBtn from './SignInBtn'
+import { BackgroundBeams } from './ui/background-beams'
 import { Button } from './ui/button'
+
 const HeroSection = () => {
   return (
-    <section className="text-primary min-h-screen bg-foreground" id="home">
-      <div className="relative w-full h-96 bg-[radial-gradient(ellipse_at_center_200px,_var(--tw-gradient-stops))] from-hero to-primary-foreground to-[80%] flex flex-col justify-center items-center px-4">
-        <div className="flex flex-col gap-y-4">
-          <motion.h1
-            className="lg:text-6xl md:text-4xl text-2xl font-medium lg:max-w-4xl md:max-w-xl max-w-none"
+    <section className="text-black bg-yellow-500 h-screen" id="home">
+      <div className="relative w-full h-full flex flex-col justify-center items-center px-4 pt-20 gap-4">
+        <BackgroundBeams></BackgroundBeams>
+        <motion.h1 className="lg:text-7xl z-10 md:text-4xl text-3xl font-bold lg:max-w-4xl md:max-w-xl max-w-none text-center">
+          Welcome to NMAMIT's Student HUB
+        </motion.h1>
+        <motion.p className="sm:text-lg text-sm leading-6 sm:leading-normal font-extralight md:max-w-2xl max-w-none gap-6 p-10 text-center">
+          Discover a seamless and engaging experience with NMAMIT STUDENT'S HUB,
+          a website designed to provide college students with all the
+          information they need about their faculty and campus. This site will
+          get you started with your journey in Nitte.
+        </motion.p>
+        <motion.div className="flex z-50 gap-2">
+          <SignInBtn stylesBtn="sm:w-28 sm:h-10 text-sm" />
+          <Button
+            className="sm:w-28 sm:h-10 bg-black text-white hover:text-white hover:bg-black"
+            onClick={() => {
+              const servicesSection = document.getElementById('services')
+              if (servicesSection) {
+                window.scrollTo({
+                  top: servicesSection.offsetTop,
+                  behavior: 'smooth',
+                })
+              }
+            }}
           >
-            Welcome to NMAMIT's Student HUB
-          </motion.h1>
-          <motion.div>
-            <SignInBtn stylesBtn="w-28 h-10" />
-          </motion.div>
-        </div>
-
-        <Image
-          src={'/Student.png'}
-          alt="hero image"
-          width={'320'}
-          height={1}
-          className="absolute top-16 right-10 hidden md:block"
-        />
+            Browse
+          </Button>
+        </motion.div>
       </div>
-      <div className="flex mt-10 lg:gap-20 gap-4 lg:flex-row flex-col items-center justify-center">
-        <motion.div
-          className="flex flex-col md:max-w-lg max-w-none gap-6 p-10"
-        >
+      {/* <div className="flex mt-10 lg:gap-20 gap-4 lg:flex-row flex-col items-center justify-center">
+        <motion.div className="flex flex-col md:max-w-lg max-w-none gap-6 p-10">
           <h1 className="sm:text-4xl text-3xl font-medium leading-10">
             Comprehensive College Website
           </h1>
@@ -53,49 +62,7 @@ const HeroSection = () => {
           </motion.p>
           <Button className="max-w-[100px] h-10">Read More</Button>
         </motion.div>
-        <div className="">
-          <motion.div
-            className="relative sm:w-[450px] w-80 h-40 sm:h-60"
-          >
-            <Image
-              sizes="(max-width: 600px) 100vw, 500px"
-              src={'/StudentGroup.jpg'}
-              alt="test"
-              fill
-              className="rounded-lg object-cover"
-            />
-          </motion.div>
-
-          <motion.div
-            className="flex mt-4 px-4 gap-x-4 justify-center lg:justify-start mb-4"
-          >
-            <Link
-              href={'https://instagram.com/test'}
-              className="hover:scale-110 duration-300"
-            >
-              <InstagramLogoIcon height={20} width={20} />
-            </Link>
-            <Link
-              href={'https://instagram.com/test'}
-              className="hover:scale-110 duration-300"
-            >
-              <TwitterLogoIcon height={20} width={20} />
-            </Link>
-            <Link
-              href={'https://instagram.com/test'}
-              className="hover:scale-110 duration-300"
-            >
-              <LinkedInLogoIcon height={20} width={20} />
-            </Link>
-            <Link
-              href={'https://instagram.com/test'}
-              className="hover:scale-110 duration-300"
-            >
-              <GitHubLogoIcon height={20} width={20} />
-            </Link>
-          </motion.div>
-        </div>
-      </div>
+      </div> */}
     </section>
   )
 }
