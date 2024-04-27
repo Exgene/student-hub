@@ -1,21 +1,55 @@
 'use client'
 import { StarFilledIcon } from '@radix-ui/react-icons'
-import Link from 'next/link'
-import { useState } from 'react'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import '../styles/navbar.css'
 // import Image from 'next/image';
 const Navbar = () => {
-  // const [opened, setOpened] = useState(true)
+  const [scroll, setScroll] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 0
+      setScroll(isScrolled)
+    }
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll)
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
   return (
     <>
-      <nav className="text-primary p-4 sm:px-6 flex items-center justify-center bg-background w-full h-16 fixed z-40 border-b-2">
+      <nav
+        className={`text-black p-4 sm:px-6 flex items-center justify-center z-[60] w-full h-20 fixed border-yellow-700 transition-colors duration-700 ${
+          scroll ? 'bg-yellow-600' : 'bg-transparent'
+        } ease-in-out`}
+      >
+        {/* Your existing content here */}
+        <motion.div
+          initial={{ width: 0, left: '50%', transform: 'translateX(-50%)' }}
+          animate={{
+            width: scroll ? '100%' : 0,
+          }}
+          transition={{ duration: 0.8 }}
+          className="absolute bottom-0 left-0 w-full h-[1px] bg-black"
+        ></motion.div>
         <Link
           href={'/#home'}
           className="text-lg flex items-center justify-center gap-2 absolute left-2"
         >
           {/* <StarFilledIcon className="mt-[2px]"></StarFilledIcon> */}
-          <Image src={'/graduated.png'} alt='logo' width={20} height={20}></Image>
+          <Image
+            src={'/graduated.png'}
+            alt="logo"
+            width={20}
+            height={20}
+          ></Image>
           Students Hub
           {/* <Image src={'/logo/logo.png'} alt='logo' width={30} height={50}></Image> */}
         </Link>
@@ -48,9 +82,9 @@ const Navbar = () => {
         <div className="z-50 flex sm:hidden">
           <div id="menuToggle" className="py-6 pr-3">
             <input type="checkbox" />
-            <span className="bg-primary"></span>
-            <span className="bg-primary"></span>
-            <span className="bg-primary"></span>
+            <span className="bg-black"></span>
+            <span className="bg-black"></span>
+            <span className="bg-black"></span>
 
             <ul
               id="menu"
