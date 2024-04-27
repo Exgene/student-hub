@@ -23,8 +23,8 @@ const SignInBtn = ({
   if (status === 'loading') {
     return (
       <div className={`${stylesContainer}`}>
-        <Button disabled className={`${stylesBtn}`}>
-          Loading
+        <Button disabled className={`${stylesBtn} text-black border`}>
+          Loading..
         </Button>
       </div>
     ) // or return a loading spinner
@@ -33,11 +33,18 @@ const SignInBtn = ({
   return (
     <div className={`${stylesContainer}`}>
       {session ? (
-        <Button onClick={handleSignOut} className={`${stylesBtn}`}>
+        <Button
+          onClick={handleSignOut}
+          className={`${stylesBtn} border`}
+        >
           Sign Out
         </Button>
       ) : (
-        <Button onClick={handleSignIn} className={`${stylesBtn}`}>
+        <Button
+          onClick={handleSignIn}
+          className={`${stylesBtn} border`}
+          variant={'default'}
+        >
           Sign In
         </Button>
       )}
