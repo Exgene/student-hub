@@ -7,8 +7,8 @@
     --background: 0 0% 6%;
     --foreground: 0 0% 13%;
 
-    --card: 216 77% 51%;
-    --card-odd: 215 76% 33%;
+    --card: 45, 93%, 47%;
+    --card-odd: 41, 96%, 40%;
     --card-foreground: 0 0% 100%;
 
     --popover: 0 0% 100%;
@@ -79,4 +79,12 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+.scrollBody {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
 }
