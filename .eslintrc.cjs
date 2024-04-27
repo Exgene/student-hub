@@ -4,11 +4,10 @@ const config = {
   parserOptions: {
     project: true,
     tsconfigRootDir: __dirname,
-    sourceType: "module",
+    sourceType: 'module',
   },
   plugins: ['@typescript-eslint'],
   extends: [
-    'plugin:@next/next/recommended',
     'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:@typescript-eslint/stylistic-type-checked',
   ],
