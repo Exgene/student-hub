@@ -13,22 +13,25 @@ export const CardValue = [
   },
   {
     cardTitle: 'Student Portal',
-    cardLink: '/faculty',
+    cardLink: 'https://nuelearn.nitte.edu.in/login/index.php',
     cardValue:
       'Access everything you need from your personalized student portal. From course schedules to grades and announcements, everything is in one place for your convenience',
   },
+
   {
-    cardTitle: 'Admissions',
-    cardLink: '/faculty',
+    cardTitle: 'Bus Timings',
+    cardLink: '/bus',
     cardValue:
-      'Find out everything you need to know about our admission process, requirements, and deadlines. Apply online and track your application status from start to finish',
+      'View all the college and public bus timings to plan your commute effectively. Never miss a bus again with our detailed schedule.',
   },
+
   {
-    cardTitle: 'Career Development',
-    cardLink: '/faculty',
+    cardTitle: 'Food Places & Restaurants',
+    cardLink: '/food-places',
     cardValue:
-      'Explore various career opportunities, internships, and job openings. Connect with alumni and industry professionals to get a head start in your career journey.',
+      'Explore various food places and restaurants near the college to satisfy your cravings and enjoy delicious meals with friends.',
   },
+
   {
     cardTitle: 'Student Organizations',
     cardLink: '/faculty',
