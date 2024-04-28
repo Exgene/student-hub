@@ -1,28 +1,55 @@
-# Create T3 App
+# Student Hub
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Welcome to the Student Hub project! This project is built using the T3 Stack, which combines various technologies to create a powerful web application.
 
-## What's next? How do I make an app with this?
+## Getting Started
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+To start working on this project, follow these steps:
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+1. Clone the repository to your local machine.
+2. Install the necessary dependencies by running `pnpm install`.
+3. Start the development server with `pnpm run dev`.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+## Technologies Used
+
+This project utilizes the following technologies:
+
+- [Next.js](https://nextjs.org) - A React framework for building server-side rendered and static websites.
+- [NextAuth.js](https://next-auth.js.org) - An authentication library for Next.js applications.
+- [Prisma](https://prisma.io) - A modern database toolkit for Node.js and TypeScript.
+- [Tailwind CSS](https://tailwindcss.com) - A utility-first CSS framework.
+- [Supabase](https://supabase.io/) - An open source Firebase alternative.
+- [Shadcn UI](https://shadcn-ui.com/) - A UI library for React applications.
+- [Aceternity UI](https://aceternity-ui.com/) - A modern UI framework for web development.
+- [React](https://reactjs.org) - A JavaScript library for building user interfaces.
+- [Vercel](https://vercel.com) - A cloud platform for static sites and serverless functions.
 
 ## Learn More
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+To learn more about the T3 Stack and how it can be used to build powerful web applications, check out the following resources:
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+- [T3 Stack Documentation](https://create.t3.gg/) - Comprehensive documentation on the T3 Stack.
+- [T3 Stack Tutorials](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) - Step-by-step tutorials to help you get started.
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+## Contributing
 
-## How do I deploy this?
+We welcome your feedback and contributions to this project. If you encounter any issues or have suggestions for improvement, please open an issue on the [GitHub repository](https://github.com/t3-oss/create-t3-app).
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+## Deployment
+
+To deploy this project, you can follow the deployment guides for different platforms:
+
+- [Vercel Deployment Guide](https://create.t3.gg/en/deployment/vercel) - Deploy to Vercel.
+- [Netlify Deployment Guide](https://create.t3.gg/en/deployment/netlify) - Deploy to Netlify.
+- [Docker Deployment Guide](https://create.t3.gg/en/deployment/docker) - Deploy using Docker.
+
+If you need any assistance, feel free to join our [Discord](https://t3.gg/discord) community and ask for help.
+
+## Problems Faced
+
+- Encountered challenges:
+  - Gathering bus timings for /bus routes
+  - Retrieving all faculty details
+  - Mainly faced data collection issues, resolved by sourcing information from external websites
+- Resolved an issue with incorrect Next Bus timings displayed on the website due to a random bug
+- Identified and successfully addressed various other unexpected bugs
