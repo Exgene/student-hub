@@ -12,10 +12,22 @@ const inter = Inter({
 })
 
 export const metadata = {
-  title: 'Students HUB',
+  siteName: 'Student Hub Nitte',
+  title: 'NMAMIT Student Portal',
   description:
     'NMAMIT Students Hub, Its about all the students essentials in one place!',
   icons: [{ rel: 'icon', url: '/graduated.png' }],
+  openGraph: {
+    title: 'NMAMIT Student Portal',
+    description:
+      'NMAMIT Students Hub, Its about all the students essentials in one place!',
+    images: [{ url: '/graduated.png' }],
+  },
+  robots:{
+    index:true,
+    follow:true
+  },
+  
 }
 
 export default function RootLayout({
