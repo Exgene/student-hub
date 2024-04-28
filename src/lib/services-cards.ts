@@ -13,7 +13,7 @@ export const CardValue = [
   },
   {
     cardTitle: 'Student Portal',
-    cardLink: 'https://nuelearn.nitte.edu.in/login/index.php',
+    cardLink: 'https://studentportal.universitysolutions.in/MainPage.html',
     cardValue:
       'Access everything you need from your personalized student portal. From course schedules to grades and announcements, everything is in one place for your convenience',
   },
@@ -27,15 +27,15 @@ export const CardValue = [
 
   {
     cardTitle: 'Food Places & Restaurants',
-    cardLink: '/food-places',
+    cardLink: 'https://foodiespot-amber.vercel.app/',
     cardValue:
       'Explore various food places and restaurants near the college to satisfy your cravings and enjoy delicious meals with friends.',
   },
 
   {
-    cardTitle: 'Student Organizations',
-    cardLink: '/faculty',
+    cardTitle: 'Incridea',
+    cardLink: 'https://incridea.in',
     cardValue:
-      'Join various student organizations and clubs to pursue your interests and make connections. Find out about events and opportunities to get involved and make an impact on campus',
+      'Incridea is a colossal national-level techno-cultural fest with an audience pool spread among 200 colleges all across India. ',
   },
 ]

@@ -96,12 +96,12 @@ export const InfiniteMovingCards = ({
             key={item.name}
           >
             <div className="flex items-center justify-center gap-2">
-              <div className="w-40 h-40 relative">
+              <div className="w-64 h-40 relative rounded-full aspect-square">
                 <Image
                   src={item.imgURL}
-                  width={300}
-                  height={300}
+                  fill
                   alt={'IMAGE'}
+                  className="object-cover rounded-full "
                 ></Image>
               </div>
               <div className="flex flex-col gap-2">

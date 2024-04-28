@@ -1,0 +1,77 @@
+[
+  {
+    "name": "Grey Matter",
+    "desc": "Quiz club fostering quizzing culture. Conducts quizzes on various topics.",
+    "imgURL": "https://nmamit.nitte.edu.in/img/non-technical-clubs/grey%20matter.jpg"
+  },
+  {
+    "name": "Rachana Club",
+    "desc": "Art events, training programs, workshops to enhance creativity and skills.",
+    "imgURL": "https://nmamit.nitte.edu.in/img/non-technical-clubs/rachana1.jpeg"
+  },
+  {
+    "name": "Authorcraft",
+    "desc": "Literary and cultural club focusing on poetry, prose, and more.",
+    "imgURL": "https://nmamit.nitte.edu.in/img/non-technical-clubs/autho1.png"
+  },
+  {
+    "name": "Yuj for Life",
+    "desc": "Yoga club promoting a happy mind and healthier body.",
+    "imgURL": "https://nmamit.nitte.edu.in/img/non-technical-clubs/yug.jpg"
+  },
+  {
+    "name": "Annadana",
+    "desc": "Club on a mission to help the needy with donations.",
+    "imgURL": "https://nmamit.nitte.edu.in/img/non-technical-clubs/annadana1.jpg"
+  },
+  {
+    "name": "Aura Club",
+    "desc": "Encourages social responsibility and charity drives for the needy.",
+    "imgURL": "https://nmamit.nitte.edu.in/img/non-technical-clubs/aura1.jpg"
+  },
+  {
+    "name": "Clicz:  Photography club",
+    "desc": "Photography club capturing moments through the lens.",
+    "imgURL": "https://nmamit.nitte.edu.in/img/non-technical-clubs/clicz.jpg"
+  },
+  {
+    "name": "HackerEarth Hub",
+    "desc": "Enhancing coding skills through contests, webinars, and hackathons.",
+    "imgURL": "https://nmamit.nitte.edu.in/img/non-technical-clubs/Hacker1.png"
+  },
+  {
+    "name": "Ecolution",
+    "desc": "Environmentally conscious club organizing cleanups and awareness campaigns.",
+    "imgURL": "https://nmamit.nitte.edu.in/img/non-technical-clubs/ecol1.png"
+  },
+  {
+    "name": "Kalanjali",
+    "desc": "Cultural club promoting talents in dance, music, and cultural activities.",
+    "imgURL": "https://nmamit.nitte.edu.in/img/non-technical-clubs/kalanjai.jpg"
+  },
+  {
+    "name": "Stereo club",
+    "desc": "Club dedicated to music and sound enthusiasts.",
+    "imgURL": "https://nmamit.nitte.edu.in/img/non-technical-clubs/stereo.jpg"
+  },
+  {
+    "name": "Taaleem - The drama club",
+    "desc": "Nurturing talents in drama, theatre, and various performances.",
+    "imgURL": "https://nmamit.nitte.edu.in/img/non-technical-clubs/talim1.png"
+  },
+  {
+    "name": "SaCAClub(Soft skills and Communication Association)",
+    "desc": "Enhancing soft skills through debates, MUN, and personal development activities.",
+    "imgURL": "https://nmamit.nitte.edu.in/img/non-technical-clubs/saca.jpg"
+  },
+  {
+    "name": "Silver Screen - Movie Club",
+    "desc": "Club for movie enthusiasts to enjoy and discuss films.",
+    "imgURL": "https://nmamit.nitte.edu.in/img/non-technical-clubs/silver.jpg"
+  },
+  {
+    "name": "ISIRI Kannada Samithi",
+    "desc": "Promoting Kannada culture and language through various activities.",
+    "imgURL": "https://nmamit.nitte.edu.in/img/non-technical-clubs/isiri.jpg"
+  }
+]

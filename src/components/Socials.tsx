@@ -1,3 +1,4 @@
+import clubs from '@/lib/club'
 import Image from 'next/image'
 import { MaskContainer } from './ui/mask-effect'
 import { InfiniteMovingCards } from './ui/moving-cards'
@@ -14,7 +15,8 @@ const Socials = () => {
     <section className="text-black bg-yellow-500" id="socials">
       <h1 className="text-center text-5xl font-medium p-10">Our Clubs</h1>
       <div className="relative w-full flex flex-col antialiased items-center justify-center overflow-hidden">
-        <InfiniteMovingCards items={mockClubs} direction="right" speed="slow" />
+        {/* <InfiniteMovingCards items={mockClubs} direction="right" speed="slow" /> */}
+        <InfiniteMovingCards items={clubs} direction="right" speed="slow" />
       </div>
       {/* <MaskContainer
         revealText={

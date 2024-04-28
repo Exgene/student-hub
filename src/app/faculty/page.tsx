@@ -40,7 +40,7 @@ const departments = Object.keys(faculty)
 const FacultyPage = () => {
   unstable_noStore()
   const [selectedDepartment, setSelectedDepartment] = useState<string>(
-    departments[1] || '',
+    departments[5] || '',
   )
   const [searchQuery, setSearchQuery] = useState('')
   const [isLoading, setIsLoading] = useState(true)
