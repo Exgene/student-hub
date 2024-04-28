@@ -23,11 +23,10 @@ export const metadata = {
       'NMAMIT Students Hub, Its about all the students essentials in one place!',
     images: [{ url: '/graduated.png' }],
   },
-  robots:{
-    index:true,
-    follow:true
+  robots: {
+    index: true,
+    follow: true,
   },
-  
 }
 
 export default function RootLayout({
@@ -37,6 +36,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <meta
+        name="google-site-verification"
+        content="ryB0_yilfa6vtTeB5ySdq3nBtK3QGgKf6_L0vc8Zr9A"
+      />
       <Provider>
         <SmoothScroll>
           <body className={`font-sans ${inter.variable}`}>
