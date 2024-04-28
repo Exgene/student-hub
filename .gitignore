@@ -43,3 +43,7 @@ yarn-error.log*
 
 # vs code
 /.vscode
+
+# sitemaps
+sitemap*.xml
+robots.txt
