@@ -41,13 +41,11 @@ export default function RootLayout({
         content="ryB0_yilfa6vtTeB5ySdq3nBtK3QGgKf6_L0vc8Zr9A"
       />
       <Provider>
-        <SmoothScroll>
-          <body className={`font-sans ${inter.variable}`}>
-            <Navbar />
-            {children}
-            <Footer />
-          </body>
-        </SmoothScroll>
+        <body className={`font-sans ${inter.variable}`}>
+          <Navbar />
+          {children}
+          <Footer />
+        </body>
       </Provider>
     </html>
   )
