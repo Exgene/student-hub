@@ -1,4 +1,6 @@
+import { authOptions } from '@/server/auth'
 import { db } from '@/server/db'
+import { getServerSession } from 'next-auth'
 
 export async function POST(req: Request) {
   const data = (await req.json()) as {
@@ -21,3 +23,15 @@ export async function POST(req: Request) {
   return Response.json({ message: 'Hi' })
 }
 
+export async function GET(req: Request) {
+  const session = await getServerSession(authOptions)
+  if (!session) return new Response('Unauthorized', { status: 401 })
+  if (
+    session.user.email !== process.env.ADMIN_EMAIL1 &&
+    session.user.email !== process.env.ADMIN_EMAIL2
+  )
+    return new Response('Unauthorized', { status: 401 })
+
+  const feedback = await db.feedback.findMany()
+  return Response.json(feedback)
+}
